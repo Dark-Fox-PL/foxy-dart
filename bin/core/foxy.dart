@@ -8,14 +8,14 @@ class Foxy {
 
   Map<String, String> get config => _config;
 
-  Foxy( { required String token, required String prefix } ) {
+  Foxy({required String token, required String prefix}) {
     _config['token'] = token;
     _config['prefix'] = prefix;
 
     _messagesHandler = MessagesHandler(config: _config);
   }
 
-  Foxy setSettings( { required String token, required String prefix } ) {
+  Foxy setSettings({required String token, required String prefix}) {
     _config['token'] = token;
     _config['prefix'] = prefix;
 
@@ -23,25 +23,24 @@ class Foxy {
   }
 
   Foxy initializeBot() {
-    final INyxxWebsocket bot = NyxxFactory.createNyxxWebsocket( _config['token'] ?? '', GatewayIntents.allUnprivileged )
-      ..registerPlugin( Logging() )
-      ..registerPlugin( CliIntegration() )
+    final INyxxWebsocket bot = NyxxFactory.createNyxxWebsocket(_config['token'] ?? '', GatewayIntents.allUnprivileged)
+      ..registerPlugin(Logging())
+      ..registerPlugin(CliIntegration())
       ..connect();
 
-    _runEventListeners( bot: bot );
+    _runEventListeners(bot: bot);
 
     return this;
   }
 
-  void _runEventListeners( { required INyxxWebsocket bot } ) {
-    bot.eventsWs.onReady.listen( (e) => print( '> Bot Ready' ) );
-    bot.eventsWs.onMessageReceived.listen( ( IMessageReceivedEvent event ) {
-      if ( event.message.author.id == bot.self.id ) {
+  void _runEventListeners({required INyxxWebsocket bot}) {
+    bot.eventsWs.onReady.listen((e) => print('> Bot Ready'));
+    bot.eventsWs.onMessageReceived.listen((IMessageReceivedEvent event) {
+      if (event.message.author.id == bot.self.id) {
         return;
       }
 
-      _messagesHandler.handle( event: event );
-    } );
+      _messagesHandler.handle(event: event);
+    });
   }
-
 }
