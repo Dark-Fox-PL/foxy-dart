@@ -36,6 +36,10 @@ class Foxy {
   void _runEventListeners( { required INyxxWebsocket bot } ) {
     bot.eventsWs.onReady.listen( (e) => print( '> Bot Ready' ) );
     bot.eventsWs.onMessageReceived.listen( ( IMessageReceivedEvent event ) {
+      if ( event.message.author.id == bot.self.id ) {
+        return;
+      }
+
       _messagesHandler.handle( event: event );
     } );
   }
