@@ -22,8 +22,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0"
-  http:
+  crypto:
     dependency: transitive
+    description:
+      name: crypto
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.1"
+  http:
+    dependency: "direct main"
     description:
       name: http
       url: "https://pub.dartlang.org"
@@ -64,6 +71,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.2.7"
+  nyxx_interactions:
+    dependency: "direct main"
+    description:
+      name: nyxx_interactions
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.3.0"
   path:
     dependency: "direct main"
     description:

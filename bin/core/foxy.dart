@@ -4,15 +4,15 @@ import '../handlers/messages_handler.dart';
 
 class Foxy {
   final Map<String, String> _config = {};
+  late final Map<String, dynamic> _commands;
   late final MessagesHandler _messagesHandler;
 
-  Map<String, String> get config => _config;
-
-  Foxy({required String token, required String prefix}) {
+  Foxy({required String token, required String prefix, required Map<String, dynamic> commands}) {
     _config['token'] = token;
     _config['prefix'] = prefix;
+    _commands = commands;
 
-    _messagesHandler = MessagesHandler(config: _config);
+    _messagesHandler = MessagesHandler(config: _config, commands: _commands);
   }
 
   Foxy setSettings({required String token, required String prefix}) {
@@ -29,6 +29,7 @@ class Foxy {
       ..connect();
 
     _runEventListeners(bot: bot);
+    _registerSlashCommands(bot: bot);
 
     return this;
   }
@@ -43,4 +44,9 @@ class Foxy {
       _messagesHandler.handle(event: event);
     });
   }
+
+  void _registerSlashCommands({required INyxxWebsocket bot}) {
+
+  }
+
 }

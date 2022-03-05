@@ -1,0 +1,21 @@
+{
+  "commands": {
+    "fox": {
+      "family": "graphic",
+      "help": "Display random fox picture.",
+      "options": {
+        "url": "https://randomfox.ca/floof/"
+      }
+    }
+  },
+  "types": [
+    {
+      "graphic": {
+        "visible": true,
+        "label": "Graphic",
+        "description": "",
+        "emoji": "🌌"
+      }
+    }
+  ]
+}
