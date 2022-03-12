@@ -10,4 +10,9 @@ abstract class FoxyCommands {
 
   void reply({required String content}) => message.event.message.channel.sendMessage(MessageBuilder.content(content));
 
+  FoxyCommands unrecognizableCommand() {
+    reply(content: 'Unrecognizable command `${message.command}`.');
+    return this;
+  }
+
 }

@@ -1,29 +1,17 @@
 import 'package:nyxx/nyxx.dart';
 
+import '../config/bot_config.dart';
 import '../handlers/messages_handler.dart';
 
 class Foxy {
-  final Map<String, String> _config = {};
-  late final Map<String, dynamic> _commands;
   late final MessagesHandler _messagesHandler;
 
-  Foxy({required String token, required String prefix, required Map<String, dynamic> commands}) {
-    _config['token'] = token;
-    _config['prefix'] = prefix;
-    _commands = commands;
-
-    _messagesHandler = MessagesHandler(config: _config, commands: _commands);
-  }
-
-  Foxy setSettings({required String token, required String prefix}) {
-    _config['token'] = token;
-    _config['prefix'] = prefix;
-
-    return this;
+  Foxy() {
+    _messagesHandler = MessagesHandler();
   }
 
   Foxy initializeBot() {
-    final INyxxWebsocket bot = NyxxFactory.createNyxxWebsocket(_config['token'] ?? '', GatewayIntents.allUnprivileged)
+    final INyxxWebsocket bot = NyxxFactory.createNyxxWebsocket(BotConfig.token ?? '', GatewayIntents.allUnprivileged)
       ..registerPlugin(Logging())
       ..registerPlugin(CliIntegration())
       ..connect();

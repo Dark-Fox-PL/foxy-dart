@@ -6,6 +6,13 @@ class Graphic extends FoxyCommands {
 
   @override
   FoxyCommands handle() {
+    switch (message.command) {
+      case 'fox': return _processFoxCommand();
+      default: return unrecognizableCommand();
+    }
+  }
+
+  FoxyCommands _processFoxCommand() {
     return this;
   }
 
