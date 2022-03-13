@@ -1,10 +1,12 @@
+import 'package:nyxx/src/nyxx.dart';
+
 import '../core/message.dart';
 import 'foxy_commands.dart';
 
 class Empty extends FoxyCommands {
-  Empty({required Message message}) : super(message: message);
+  Empty({required Message message, required INyxxWebsocket bot}) : super(message: message, bot: bot);
 
   @override
-  FoxyCommands handle() => unrecognizableCommand();
+  Future<FoxyCommands> handle() async => unrecognizableCommand();
 
 }

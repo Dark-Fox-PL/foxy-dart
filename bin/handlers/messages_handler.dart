@@ -5,12 +5,14 @@ import 'commands_handler.dart';
 
 class MessagesHandler {
   late IMessageReceivedEvent _receivedEvent;
+  late INyxxWebsocket _bot;
 
-  void handle({required IMessageReceivedEvent event}) {
+  void handle({required IMessageReceivedEvent event, required INyxxWebsocket bot}) {
     _receivedEvent = event;
+    _bot = bot;
 
     if (_startsWithPrefix()) {
-      CommandsHandler(receivedEvent: _receivedEvent).handle();
+      CommandsHandler(receivedEvent: _receivedEvent, bot: _bot).handle();
     }
   }
 

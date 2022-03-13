@@ -11,7 +11,7 @@ class Foxy {
   }
 
   Foxy initializeBot() {
-    final INyxxWebsocket bot = NyxxFactory.createNyxxWebsocket(BotConfig.token ?? '', GatewayIntents.allUnprivileged)
+    final INyxxWebsocket bot = NyxxFactory.createNyxxWebsocket(BotConfig.token, GatewayIntents.allUnprivileged)
       ..registerPlugin(Logging())
       ..registerPlugin(CliIntegration())
       ..connect();
@@ -29,7 +29,7 @@ class Foxy {
         return;
       }
 
-      _messagesHandler.handle(event: event);
+      _messagesHandler.handle(event: event, bot: bot);
     });
   }
 

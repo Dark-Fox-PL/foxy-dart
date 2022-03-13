@@ -9,14 +9,16 @@ import '../core/message.dart';
 
 class CommandsHandler {
   late final IMessageReceivedEvent _receivedEvent;
+  late final INyxxWebsocket _bot;
   late final Message _messageHandler;
 
   List<String> _input = [];
   String _command = '';
   String _content = '';
 
-  CommandsHandler({required IMessageReceivedEvent receivedEvent}) {
+  CommandsHandler({required IMessageReceivedEvent receivedEvent, required INyxxWebsocket bot}) {
     _receivedEvent = receivedEvent;
+    _bot = bot;
   }
 
   CommandsHandler handle() {
@@ -50,10 +52,10 @@ class CommandsHandler {
 
     switch (family) {
       case 'graphic':
-        implementation = Graphic(message: _messageHandler);
+        implementation = Graphic(message: _messageHandler, bot: _bot);
         break;
       default:
-        implementation = Empty(message: _messageHandler);
+        implementation = Empty(message: _messageHandler, bot: _bot);
         break;
     }
 
