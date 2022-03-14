@@ -10,7 +10,7 @@ abstract class FoxyCommands {
   FoxyCommands({required this.message, required this.bot});
   Future<FoxyCommands> handle();
 
-  Future<IMessage> printError() async => await embedReply(color: Colors.error, title: 'Something goes wrong...', fields: [{ 'content': 'Please try again later.' }]);
+  Future<IMessage> printError() async => await embedReply(color: Colors.error, title: 'Something goes wrong...', description: 'Please try again later.' );
 
   Future<IMessage> reply({required String content}) async => await message.event.message.channel.sendMessage(MessageBuilder.content(content));
 
