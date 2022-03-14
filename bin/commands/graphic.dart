@@ -1,7 +1,4 @@
-import 'dart:collection';
 import 'dart:convert';
-import 'dart:io';
-import 'dart:math';
 
 import 'package:http/http.dart' as http;
 import 'package:nyxx/nyxx.dart';
@@ -45,7 +42,7 @@ class Graphic extends FoxyCommands {
         color: Colors.foxy,
         title: 'What a Fox!',
         image: responseJson['image'] ?? '',
-        description: 'What a cute Fox, just for you!',
+        description: 'What a cute fox, just for you!',
       );
     } catch (e) {
       printError();
@@ -76,7 +73,7 @@ class Graphic extends FoxyCommands {
         color: DiscordColor.dartBlue,
         title: 'What a cute doggo!',
         image: responseJson['message'] ?? '',
-        description: 'What a cute Dog, just for you!',
+        description: 'What a cute dog, just for you!',
       );
     } catch (e) {
       printError();
@@ -107,7 +104,7 @@ class Graphic extends FoxyCommands {
         color: DiscordColor.flutterBlue,
         title: 'What a Cat!',
         image: responseJson[0]?['url'] ?? '',
-        description: 'What a cute Cat, just for you!',
+        description: 'What a cute cat, just for you!',
       );
     } catch (e) {
       printError();
