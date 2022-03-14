@@ -6,6 +6,20 @@
       "options": {
         "url": "https://randomfox.ca/floof/"
       }
+    },
+    "dog": {
+      "family": "graphic",
+      "help": "Display random dog picture.",
+      "options": {
+        "url": "https://dog.ceo/api/breeds/image/random"
+      }
+    },
+    "cat": {
+      "family": "graphic",
+      "help": "Display random cat picture.",
+      "options": {
+        "url": "https://api.thecatapi.com/v1/images/search"
+      }
     }
   },
   "types": [
