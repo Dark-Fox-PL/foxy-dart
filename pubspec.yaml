@@ -1,5 +1,5 @@
 name: foxy_dart
-version: 1.0.0
+version: 3.0.0
 description: A simple command-line application.
 repository: https://github.com/Dark-Fox-PL/foxy-dart
 publish_to: none
@@ -12,6 +12,7 @@ dependencies:
   nyxx: ^3.2.7
   nyxx_interactions: ^3.3.0
   path: ^1.8.0
+  yaml: ^3.1.0
 
 dev_dependencies:
   lints: ^1.0.0
