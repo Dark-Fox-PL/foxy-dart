@@ -1,5 +1,13 @@
 {
   "commands": {
+    "8ball": {
+      "family": "fun",
+      "help": "Provides random positive, neutral or negative answer.",
+      "options": {
+        "url": "https://randomfox.ca/floof/"
+      }
+    },
+
     "fox": {
       "family": "graphic",
       "help": "Display random fox picture.",
@@ -23,6 +31,14 @@
     }
   },
   "types": [
+    {
+      "fun": {
+        "visible": true,
+        "label": "Fun",
+        "description": "",
+        "emoji": "🎮"
+      }
+    },
     {
       "graphic": {
         "visible": true,

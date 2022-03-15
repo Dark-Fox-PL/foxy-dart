@@ -2,6 +2,7 @@ import 'package:nyxx/nyxx.dart';
 
 import '../commands/empty.dart';
 import '../commands/foxy_commands.dart';
+import '../commands/fun.dart';
 import '../commands/graphic.dart';
 import '../config/bot_config.dart';
 import '../config/commands_config.dart';
@@ -48,18 +49,15 @@ class CommandsHandler {
     Map<String, dynamic> command = CommandsConfig.commands[_command] ?? {};
     String family = command['family'] ?? '';
 
-    late FoxyCommands implementation;
+    late FoxyCommands fC;
 
     switch (family) {
-      case 'graphic':
-        implementation = Graphic(message: _messageHandler, bot: _bot);
-        break;
-      default:
-        implementation = Empty(message: _messageHandler, bot: _bot);
-        break;
+      case 'fun': fC = Fun(message: _messageHandler, bot: _bot); break;
+      case 'graphic': fC = Graphic(message: _messageHandler, bot: _bot); break;
+      default: fC = Empty(message: _messageHandler, bot: _bot); break;
     }
 
-    implementation.handle();
+    fC.handle();
   }
 
 }
