@@ -3,6 +3,7 @@ import 'package:nyxx/nyxx.dart';
 import '../commands/empty.dart';
 import '../commands/foxy_commands.dart';
 import '../commands/fun.dart';
+import '../commands/general.dart';
 import '../commands/graphic.dart';
 import '../config/bot_config.dart';
 import '../config/commands_config.dart';
@@ -53,6 +54,7 @@ class CommandsHandler {
 
     switch (family) {
       case 'fun': fC = Fun(message: _messageHandler, bot: _bot); break;
+      case 'general': fC = General(message: _messageHandler, bot: _bot); break;
       case 'graphic': fC = Graphic(message: _messageHandler, bot: _bot); break;
       default: fC = Empty(message: _messageHandler, bot: _bot); break;
     }

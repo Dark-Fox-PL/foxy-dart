@@ -1,14 +1,19 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:yaml/yaml.dart';
+
+import '../config/app_config.dart';
 import '../config/bot_config.dart';
 import '../config/commands_config.dart';
 
 class ConfigCreator {
+  late YamlMap _app;
   Map<String, dynamic> _bot = {};
   Map<String, dynamic> _commands = {};
 
   Future<void> run() async {
+    _app = await _loadAppConfig();
     _bot = await _loadBotConfig();
     _commands = await _loadCommands();
 
@@ -16,8 +21,19 @@ class ConfigCreator {
   }
 
   void _initializeConfigs() {
+    AppConfig.set(config: _app);
     BotConfig.set(config: _bot);
     CommandsConfig.set(config: _commands);
+  }
+
+  Future<YamlMap> _loadAppConfig() async {
+    final String pubspecFile = await File('./pubspec.yaml').readAsString();
+    assert('' != pubspecFile, 'Pubspec file is empty.');
+
+    final config = loadYaml(pubspecFile);
+    assert(config is YamlMap, 'Received config file is not a valid Yaml.');
+
+    return config;
   }
 
   Future<Map<String, dynamic>> _loadBotConfig() async {

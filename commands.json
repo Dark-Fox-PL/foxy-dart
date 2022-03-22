@@ -2,10 +2,12 @@
   "commands": {
     "8ball": {
       "family": "fun",
-      "help": "Provides random positive, neutral or negative answer.",
-      "options": {
-        "url": "https://randomfox.ca/floof/"
-      }
+      "help": "Provides random positive, neutral or negative answer."
+    },
+
+    "info": {
+      "family": "general",
+      "help": "Display general Bot information and stats."
     },
 
     "fox": {
@@ -37,6 +39,14 @@
         "label": "Fun",
         "description": "",
         "emoji": "🎮"
+      }
+    },
+    {
+      "general": {
+        "visible": true,
+        "label": "General",
+        "description": "",
+        "emoji": "❔"
       }
     },
     {
