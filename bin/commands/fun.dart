@@ -12,6 +12,9 @@ class Fun extends FoxyCommands {
   Future<FoxyCommands> handle() async {
     switch (message.command) {
       case '8ball': return _process8BallCommand();
+      case 'choice':
+      case 'choose':
+      case 'select': return _processChoiceCommand();
       default: return unrecognizableCommand();
     }
   }
@@ -36,10 +39,26 @@ class Fun extends FoxyCommands {
       { 'color': DiscordColor.indianRed, 'message': 'Nope.' },
       { 'color': DiscordColor.indianRed, 'message': 'No.' },
     ];
-    Map<String, dynamic> choice = choices[ r.nextInt(choices.length) ];
+    Map<String, dynamic> choice = choices[r.nextInt(choices.length)];
 
     try {
       embedReply(color: choice['color'], title: 'The 🎱 has spoken:', description: choice['message']);
+    } catch (e) {
+      print(e);
+      printError();
+    }
+
+    return this;
+  }
+
+  Future<FoxyCommands> _processChoiceCommand() async {
+    final Random r = Random();
+    String pattern = message.content.contains('|') ? '|' : ' ';
+    List<String> choices = message.content.split(pattern);
+    String choice = choices[r.nextInt(choices.length)];
+
+    try {
+      embedReply(color: DiscordColor.indianRed, title: 'I choose...', description: choice);
     } catch (e) {
       print(e);
       printError();

@@ -4,6 +4,11 @@
       "family": "fun",
       "help": "Provides random positive, neutral or negative answer."
     },
+    "choice": {
+      "family": "fun",
+      "help": "Choice one thing out of given ones. You can use `|` to separate choices, otherwise space ` ` will be used as separator.",
+      "aliases": [ "choose", "select" ]
+    },
 
     "info": {
       "family": "general",

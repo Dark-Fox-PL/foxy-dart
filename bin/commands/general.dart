@@ -20,9 +20,9 @@ class General extends FoxyCommands {
       color: DiscordColor.cornflowerBlue,
       title: bot.self.username,
       fields: [
-        { 'name': 'Version', 'content': '${AppConfig.version} alpha 1', 'inline': false },
+        { 'name': 'Version', 'content': '${AppConfig.version} alpha 2', 'inline': false },
         { 'name': 'Release note', 'content': 'Please note that the bot is still under development.', 'inline': false },
-        { 'name': 'Current commands', 'content': '`fox`, `cat`, `dog`, `8ball`', 'inline': false },
+        { 'name': 'Current commands', 'content': '`fox`, `cat`, `dog`, `8ball`, `choice`', 'inline': false },
       ]
     );
 
