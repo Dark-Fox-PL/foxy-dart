@@ -47,7 +47,7 @@ class CommandsHandler {
   void _prepareMessageHandler() => _messageHandler = Message(command: _command, content: _content, input: _input, event: _receivedEvent);
 
   void _runCommand() {
-    Map<String, dynamic> command = CommandsConfig.commands[_command] ?? {};
+    Map<String, dynamic> command = CommandsConfig.commands[_command] ?? _checkAliases();
     String family = command['family'] ?? '';
 
     late FoxyCommands fC;
@@ -60,6 +60,22 @@ class CommandsHandler {
     }
 
     fC.handle();
+  }
+
+  Map<String, dynamic> _checkAliases() {
+    Map<String, dynamic> alias = {};
+
+    CommandsConfig.commands.forEach((command, properties) {
+      if (properties is! Map<String, dynamic> || !properties.containsKey('aliases')) {
+        return;
+      }
+
+      if (properties['aliases'].contains(_command)) {
+        alias = properties;
+      }
+    });
+
+    return alias;
   }
 
 }
