@@ -21,7 +21,14 @@ packages:
       name: collection
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.15.0"
+    version: "1.16.0"
+  convert:
+    dependency: transitive
+    description:
+      name: convert
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.1"
   crypto:
     dependency: transitive
     description:
@@ -64,13 +71,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.0"
+  mime:
+    dependency: transitive
+    description:
+      name: mime
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   nyxx:
     dependency: "direct main"
     description:
       name: nyxx
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.2.7"
+    version: "3.3.0"
   nyxx_interactions:
     dependency: "direct main"
     description:
@@ -85,6 +99,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.1"
+  postgresql2:
+    dependency: "direct main"
+    description:
+      name: postgresql2
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
+  rikulo_commons:
+    dependency: transitive
+    description:
+      name: rikulo_commons
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.2.0+1"
   source_span:
     dependency: transitive
     description:
